@@ -1,0 +1,1 @@
+/home/qyj/.vimrc
