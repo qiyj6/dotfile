@@ -1,1 +1,12 @@
-/home/qyj/.gitconfig
+[user]
+	name = Yujing_Qi 
+	email = qiyj2000@163.com
+[core]
+	editor = vim
+	excludesfile = /home/qyj/.gitignore_global
+[color]
+	ui = true
+[https]
+	proxy = http://127.0.0.1:7890
+[alias]
+	graph = log --all --graph --decorate --oneline
