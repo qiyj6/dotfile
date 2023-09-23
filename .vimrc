@@ -1,7 +1,8 @@
-set cursorcolumn
+"set cursorcolumn
 set cursorline
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green
+autocmd ColorScheme * highlight! Cursorline cterm=bold ctermbg=236 guibg=Grey90
+autocmd ColorScheme * highlight! CursorLineNr cterm=bold ctermfg=159 ctermbg=236 guibg=Grey90
+autocmd ColorScheme * hi! CursorColumn cterm=bold ctermfg=245 ctermbg=236 guibg=Grey90
 set scrolloff=5
 set bufhidden=hide " 当buffer被丢弃的时候隐藏它
 set paste
@@ -9,7 +10,7 @@ set nu
 set rnu
 set noswapfile
 colorscheme koehler  " 设定配色方案
-set number " 显示行号
+"set number " 显示行号
 set ruler " 打开状态栏标尺
 set shiftwidth=2 
 set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
@@ -23,7 +24,6 @@ set novisualbell " 关闭使用可视响铃代替呼叫
 set t_vb= " 置空错误铃声的终端代码
 set matchtime=2 " 短暂跳转到匹配括号的时间
 set magic " 设置魔术
-set smartindent " 开启新行时使用智能自动缩进
 set backspace=indent,eol,start " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set cmdheight=1 " 设定命令行的行数为 1
 "set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
@@ -35,21 +35,14 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ Ln\
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set clipboard^=unnamed,unnamedplus
 nnoremap H gT
-nnoremap <C-n> :set nohlsearch<cr>
-nnoremap <C-h> :set hlsearch<cr>
 nnoremap L gt
-" fast way to shift tab
-noremap <silent><leader>1 :tabn 1<cr>
-noremap <silent><leader>2 :tabn 2<cr>
-noremap <silent><leader>3 :tabn 3<cr>
-noremap <silent><leader>4 :tabn 4<cr>
-noremap <silent><leader>5 :tabn 5<cr>
-noremap <silent><leader>6 :tabn 6<cr>
-noremap <silent><leader>7 :tabn 7<cr>
-noremap <silent><leader>8 :tabn 8<cr>
-noremap <silent><leader>9 :tabn 9<cr>
-noremap <silent><leader>0 :tabn 10<cr>
-
+nnoremap <leader>ru :source ~/.vimrc<cr>
+nnoremap <leader>re :e ~/.vimrc<cr>
+nnoremap <C-n> :noh<cr>
+nnoremap <leader>n :tabnew 
+nnoremap <leader>c :tabclose
+"imap <C-n> <C-q>  
+" tabname without unreadable path
 function! Tabline() abort
     let l:line = ''
     let l:current = tabpagenr()
@@ -77,5 +70,6 @@ function! Tabline() abort
 endfunction
 
 set tabline=%!Tabline()
+" auto indent
 set autoindent
 set smartindent
