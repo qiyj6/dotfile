@@ -6,6 +6,7 @@ alias jb="jobs"
 alias dc="cd"
 alias tx="tmux"
 alias tl="tmux ls"
+alias l-="ls -lt"
 alias mkcd='function __mkcd(){ if [ $# == 1 ]; then mkdir $1; cd $1; unset -f __mkcd; elif [ $# == 2 ]; then mkdir $1 $2; cd $2; unset -f __mkcd; fi }; __mkcd'
 alias rmfasd="rm -f ~/.fasd"
 alias uddot="cp ~/.vimrc ~/.bashrc ~/.tmux.conf ~/.gitconfig ~/.gitignore_global ~/.dotfile/"
@@ -126,3 +127,4 @@ export NEMU_HOME=/home/qyj/ysyx-workbench/nemu
 export AM_HOME=/home/qyj/ysyx-workbench/abstract-machine
 eval "$(fasd --init auto)"
 export NPC_HOME=/home/qyj/ysyx-workbench/npc
+export NVBOARD_HOME=/home/qyj/ysyx-workbench/nvboard

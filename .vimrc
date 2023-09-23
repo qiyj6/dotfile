@@ -1,3 +1,8 @@
+set cursorcolumn
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green
+set scrolloff=5
 set bufhidden=hide " 当buffer被丢弃的时候隐藏它
 set paste
 set nu
@@ -30,6 +35,8 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ Ln\
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> " 用空格键来开关折叠
 set clipboard^=unnamed,unnamedplus
 nnoremap H gT
+nnoremap <C-n> :set nohlsearch<cr>
+nnoremap <C-h> :set hlsearch<cr>
 nnoremap L gt
 " fast way to shift tab
 noremap <silent><leader>1 :tabn 1<cr>
@@ -70,3 +77,5 @@ function! Tabline() abort
 endfunction
 
 set tabline=%!Tabline()
+set autoindent
+set smartindent
