@@ -1,4 +1,4 @@
-"set cursorcolumn
+set cursorcolumn
 set cursorline
 autocmd ColorScheme * highlight! Cursorline cterm=bold ctermbg=236 guibg=Grey90
 autocmd ColorScheme * highlight! CursorLineNr cterm=bold ctermfg=159 ctermbg=236 guibg=Grey90
@@ -39,8 +39,10 @@ nnoremap H gT
 nnoremap L gt
 nnoremap <leader>ru :source ~/.vimrc<cr>
 nnoremap <leader>re :e ~/.vimrc<cr>
+nnoremap <leader>E  :Explore <cr>
 nnoremap <C-n> :noh<cr>
 nnoremap <leader>n :tabnew 
+nnoremap <leader>N :tabnew<cr>
 nnoremap <leader>c :tabclose
 noremap s <nop>
 "imap <C-n> <C-q>  
@@ -71,8 +73,6 @@ function! Tabline() abort
     return l:line
 endfunction
 set tabline=%!Tabline()
-" paste alia
-set paste
 " show vim cmd
 set showcmd
 
@@ -90,4 +90,3 @@ endif
 " auto indent
 set autoindent
 set smartindent
-

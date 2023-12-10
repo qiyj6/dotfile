@@ -1,15 +1,21 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+
 alias lt="ls -lath"
-alias jb="jobs"
 alias dc="cd"
 alias tx="tmux"
 alias tl="tmux ls"
 alias l-="ls -lt"
+alias fg="fgrep -r -n "$1""
+alias scb="source "~/.bashrc" && echo 'source ~/.bashrc done!'"
+alias vb="vim "~/.bashrc" "
 alias mkcd='function __mkcd(){ if [ $# == 1 ]; then mkdir $1; cd $1; unset -f __mkcd; elif [ $# == 2 ]; then mkdir $1 $2; cd $2; unset -f __mkcd; fi }; __mkcd'
 alias rmfasd="rm -f ~/.fasd"
 alias uddot="cp ~/.vimrc ~/.bashrc ~/.tmux.conf ~/.gitconfig ~/.gitignore_global ~/.dotfile/"
+alias mnpc='make_npc(){ make ARCH=riscv32e-npc ALL=$1 run;};make_npc '
+alias mnem='make_nemu(){ make ARCH=riscv32e-nemu ALL=$1 run;};make_nemu '
+alias gd='gdb --args /home/qyj/ysyx-workbench/npc/obj_dir/Vtop /home/qyj/ysyx-workbench/am-kernels/tests/cpu-tests/build/add-riscv32e-npc.bin /home/qyj/ysyx-workbench/nemu/build/riscv32-nemu-interpreter-so'
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -128,3 +134,4 @@ export AM_HOME=/home/qyj/ysyx-workbench/abstract-machine
 eval "$(fasd --init auto)"
 export NPC_HOME=/home/qyj/ysyx-workbench/npc
 export NVBOARD_HOME=/home/qyj/ysyx-workbench/nvboard
+export PATH=/usr/lib/ccache:${PATH}
